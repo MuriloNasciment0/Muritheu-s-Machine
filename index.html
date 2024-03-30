@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="styles.css">
+
+	<title>Muritheu's Machine</title>
+</head>
+
+<body>
+	<center>
+		<a href="https://www.instagram.com/matheuszxv/" target="_blank">
+			<img src="src/mm.png" alt="fotoMatheus" class="foto" id="imgMatheus">
+		</a>
+		<a href="https://www.instagram.com/_murilonascimentoo/" target="_blank">
+			<img src="src/file.png" alt="FotoMurilo" class="foto" id="imgMurilo">
+		</a>
+		<h1 class="h1-title">Muritheu's Machine</h1>
+	</center>
+
+	<div class="cards">
+
+		<div class="card-1">
+			<p id="BaseP">Selecione a base do número
+			<p><br>
+				<select name="" id="selectBase">
+					<option value="decimal">Decimal</option>
+					<option value="octal">Octal</option>
+					<option value="hexa">Hexadecimal</option>
+					<option value="bin">Binário</option>
+				</select> <br><br>
+
+			<p id="textoInput">Coloque o número que deseja converter:</p> <br>
+			<input type="text" id="inputNumerodesejado" placeholder="Digite o número"><br><br>
+
+			<p id="bases">Quais bases deseja converter?</p><br>
+			<input type="checkbox" id="convertDecimal"><label for="convertDecimal">Decimal</label><br><br>
+			<input type="checkbox" id="convertHexadecimal"><label for="convertHexadecimal">Hexadecimal</label><br><br>
+			<input type="checkbox" id="convertOctal"><label for="convertOctal">Octal</label><br><br>
+			<input type="checkbox" id="convertBinario"><label for="convertBinario">Binário</label><br><br>
+			<br><br>
+
+			<button onclick="converterParaBases()">Converter</button>
+
+
+		</div>
+
+
+
+
+	</div>
+	<center>
+		<div id="div_resultado">
+			<p id="pResultado">Resultado</p>
+		</div>
+	</center>
+</body>
+
+</html>
+
+<script>
+
+	function converterParaBases() {
+		let inputValue = inputNumerodesejado.value
+
+		let convertDecimal = document.getElementById("convertDecimal").checked
+		let convertHexadecimal = document.getElementById("convertHexadecimal").checked
+		let convertOctal = document.getElementById("convertOctal").checked
+		let convertBinario = document.getElementById("convertBinario").checked
+
+		let inputBase = selectBase.value; // selecionar decimal
+
+
+
+		div_resultado.innerHTML = ''
+
+		if (inputBase == "decimal") {
+
+			let decimal = Number(inputValue);
+			let hexadecimal = decimal.toString(16)
+			let octal = decimal.toString(8)
+			let binario = decimal.toString(2)
+
+			if (isNaN(decimal)) {
+				alert("Não é um número")
+			} else {
+				if (convertDecimal) {
+					div_resultado.innerHTML += ` <br>Decimal: ${decimal} <br>`
+				}
+
+				if (convertHexadecimal) {
+					div_resultado.innerHTML += `Hexadecimal: ${hexadecimal.toUpperCase()} <br>`
+				}
+
+				if (convertOctal) {
+					div_resultado.innerHTML += `Octal: ${octal} <br>`
+				}
+
+				if (convertBinario) {
+					div_resultado.innerHTML += `Binario: ${binario} <br><br><br>`
+				}
+			}
+
+		} else if (inputBase == "hexa") {
+
+			let hexadecimal = inputValue;
+
+			if (/^[0123456789AaBbCcDdEeFf]+$/.test(hexadecimal)) {
+				let decimal = parseInt(hexadecimal, 16);
+				let binario = decimal.toString(2);
+				let octal = decimal.toString(8);
+
+				if (convertDecimal) {
+					div_resultado.innerHTML += ` <br>Decimal: ${decimal} <br>`
+				}
+
+				if (convertHexadecimal) {
+					div_resultado.innerHTML += `Hexadecimal: ${hexadecimal.toUpperCase()} <br>`
+				}
+
+				if (convertOctal) {
+					div_resultado.innerHTML += `Octal: ${octal} <br>`
+				}
+
+				if (convertBinario) {
+					div_resultado.innerHTML += `Binario: ${binario} <br><br><br>`
+				}
+			} else {
+				alert("Valor hexadecimal inválido. Apenas valores de 0 a 9 e/ou A a F são permitidos.");
+			}
+
+		} else if (inputBase == "octal") {
+			let octal = inputValue
+			if (/^[01234567]+$/.test(octal)) {
+				let decimal = parseInt(octal, 8);
+				let binario = decimal.toString(2);
+				let hexadecimal = decimal.toString(16);
+
+				if (convertDecimal) {
+					div_resultado.innerHTML += ` <br>Decimal: ${decimal} <br>`
+				}
+
+				if (convertHexadecimal) {
+					div_resultado.innerHTML += `Hexadecimal: ${hexadecimal.toUpperCase()} <br>`
+				}
+
+				if (convertOctal) {
+					div_resultado.innerHTML += `Octal: ${octal} <br>`
+				}
+
+				if (convertBinario) {
+					div_resultado.innerHTML += `Binario: ${binario} <br><br><br>`
+				}
+			} else {
+				alert("Valor octal inválido. Apenas valores de 0 a 7 são permitidos.");
+			}
+		} else if (inputBase == "bin") {
+			let binario = inputValue
+			if (/^[01]+$/.test(binario)) {
+				let decimal = parseInt(binario, 2);
+				let octal = decimal.toString(8);
+				let hexadecimal = decimal.toString(16);
+
+				if (convertDecimal) {
+					div_resultado.innerHTML += ` <br>Decimal: ${decimal} <br>`
+				}
+
+				if (convertHexadecimal) {
+					div_resultado.innerHTML += `Hexadecimal: ${hexadecimal.toUpperCase()} <br>`
+				}
+
+				if (convertOctal) {
+					div_resultado.innerHTML += `Octal: ${octal} <br>`
+				}
+
+				if (convertBinario) {
+					div_resultado.innerHTML += `Binario: ${binario} <br><br><br>`
+				}
+			} else {
+				alert("Valor binário inválido. Apenas 0s e 1s são permitidos.");
+			}
+		}
+	}
+
+</script>

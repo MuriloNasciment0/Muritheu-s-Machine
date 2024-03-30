@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    font-size: 62.%;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+
+}
+
+#imgMatheus,
+#imgMurilo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 1rem;
+}
+
+#imgMurilo {
+    left: 50%;
+    transform: translateX(-5rem);
+}
+
+#imgMatheus {
+    right: 50%;
+    transform: translateX(5rem);
+}
+
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.h1-title {
+    width: 100%;
+    padding: 5%;
+    display: flex;
+    background-color: #fa3365;
+    color: WHITE;
+    justify-content: center;
+}
+
+.cards {
+    display: grid;
+    place-items: center;
+    width: min(42.8rem, 90%);
+    height: auto;
+    margin: -2rem auto 0;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.80);
+    border-radius: 9px;
+    animation: downtop 1s ease;
+    margin: -2rem auto 2rem;
+}
+
+
+.card-1 {
+    text-align: center;
+    width: 30rem;
+    margin: 4.8rem auto;
+}
+
+.card-1 select,
+.card-1 input[type="text"],
+.card-1 button {
+    margin-bottom: 1rem;
+}
+
+
+select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+
+input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 13px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+#textoInput,
+#BaseP,
+#bases {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: bold;
+    color: #fa3365;
+
+}
+
+input[type="text"]:focus {
+    border-color: #f06d90;
+    outline: 1px solid #f06d90;
+}
+
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="checkbox"]::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #ccc;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked::after {
+    background-color: #ca6464;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 15px;
+    background-color: #fa3365;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 400px;
+    height: 70px;
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+
+button:hover {
+    background-color: #f06d90;
+}
+
+
+
+select:focus {
+    outline: none;
+    border-color: #f06d90;
+    transform: translateY(5px) scale(1.05);
+}
+
+
+#div_resultado {
+    width: 600px;
+    height: 250px;
+    background-color: rgb(69, 138, 100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.80);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    animation: downtop 1s ease;
+
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+    .cards {
+        width: 90%;
+    }
+
+    .card-1 {
+        width: 100%;
+        margin: 2rem auto;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .card-resultado {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .cards {
+        width: 42.8rem;
+    }
+
+    .card-1 {
+        width: 30rem;
+        margin: 4.8rem auto;
+    }
+
+    button {
+        width: 400px;
+    }
+
+    .card-resultado {
+        width: 600px;
+        height: 250px;
+    }
+}
+
+
+
+@keyframes downtop {
+    0% {
+        opacity: 0;
+        margin-top: 5rem;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.50;
+    }
+
+    75% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
